@@ -61,7 +61,6 @@ html::-webkit-scrollbar {
 .navbar-container {
   margin-top: 0;
   top: 0;
-  
 }
 
 .navbar {
@@ -80,7 +79,6 @@ html::-webkit-scrollbar {
   transition: background 0.3s, box-shadow 0.3s;
   margin: 0 auto;
   box-sizing: border-box;
-  border-bottom: 2px solid #aaa;
 }
 
 .navbar .container {
@@ -116,14 +114,8 @@ html::-webkit-scrollbar {
   margin: 0 auto;
   padding: 0 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-}
-
-.nav-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
 }
 
 .nav-menu {
@@ -131,23 +123,19 @@ html::-webkit-scrollbar {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2rem;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .nav-link {
   color: #aaa;
-  padding: 0.5rem 0;
+  padding: 0.2rem 0 0.8rem 0;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
   color: #fff;
-}
-
-/* Main content padding to account for fixed navbar */
-.main-content {
-  padding-top: 80px;
 }
 
 /* ===== LANDING PAGE STYLES ===== */
@@ -303,7 +291,6 @@ html::-webkit-scrollbar {
   border: 1px solid white;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  text-decoration: none;
 }
 
 .resume-btn:hover {
@@ -329,10 +316,6 @@ html::-webkit-scrollbar {
 
 /* ===== FEATURED PROJECTS STYLES (from Featured.css) ===== */
 
-.all-projects-link {
-  align-items: flex-end;
-}
-
 .featured-card {
   color: #fff;
   display: flex;
@@ -350,33 +333,28 @@ html::-webkit-scrollbar {
   text-decoration: none;
   align-items: stretch;
 }
-
 .featured-card:hover {
   background-color: #1c1c1c;
   transform: scale(1.04) translateY(-4px);
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22), 0 2px 8px rgba(0, 0, 0, 0.09);
   z-index: 2;
 }
-
 .event-info {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
 .event-date,
 .event-desc {
   color: #aaa;
   font-size: 12px;
 }
-
 .event-date,
 .event-name,
 .event-desc {
   padding-bottom: 8px;
 }
-
 .event-stack-row {
   width: fit-content;
   align-self: flex-start;
@@ -386,7 +364,6 @@ html::-webkit-scrollbar {
   margin-top: 2px;
   margin-bottom: 2px;
 }
-
 .event-stack {
   border: 1px solid #fff;
   background-color: #fff;
@@ -401,20 +378,17 @@ html::-webkit-scrollbar {
   letter-spacing: 0.03em;
   color: #000;
 }
-
 .event-desc {
   color: #aaa;
   line-height: 1.6;
   margin-top: 4px;
   margin-bottom: 0;
 }
-
 .event-buttons {
   display: flex;
   gap: 0.5rem;
   margin-top: 12px;
 }
-
 .event-btn {
   background: #000;
   color: #fff;
@@ -430,14 +404,32 @@ html::-webkit-scrollbar {
   display: inline-flex;
   align-items: center;
 }
-
 .event-btn:hover,
 .event-btn:focus {
   background: #fff;
   color: #000;
 }
-
 .event-pic {
+  width: 350px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.event-pic img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.21s cubic-bezier(0.4, 2, 0.6, 1);
+}
+.featured-card:hover .event-pic img {
+  transform: scale(1.03);
+}
+
+/* Experience images - smaller size */
+.experience-pic {
   width: 80px;
   height: 80px;
   display: flex;
@@ -447,7 +439,7 @@ html::-webkit-scrollbar {
   margin-top: 8px;
 }
 
-.event-pic img {
+.experience-pic img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -455,45 +447,79 @@ html::-webkit-scrollbar {
   transition: transform 0.21s cubic-bezier(0.4, 2, 0.6, 1);
 }
 
-.featured-card:hover .event-pic img {
+.featured-card:hover .experience-pic img {
   transform: scale(1.03);
+}
+
+@media (max-width: 1500px) {
+  .featured-card {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    flex-direction: column-reverse;
+  }
+  .event-pic {
+    width: 100%;
+    min-width: unset;
+    margin-top: 12px;
+  }
+  .event-pic img {
+    width: 100%;
+    min-width: unset;
+    min-height: 180px;
+    max-height: 220px;
+    object-fit: cover;
+  }
+  .event-buttons {
+    align-items: center;
+    justify-content: center;
+  }
+  .event-desc {
+    font-size: 0.9rem;
+  }
 }
 
 /* ===== TECH STACK STYLES (from TechStack.css) ===== */
 .stack-icons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .tech-card {
-  background: #111;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s cubic-bezier(0.4, 2, 0.6, 1),
-    box-shadow 0.2s cubic-bezier(0.4, 2, 0.6, 1);
+  transition: all 0.3s ease;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .tech-card:hover,
 .tech-card:focus {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .tech-icon {
-  font-size: 2rem;
+  font-size: 3rem;
   color: #ffffff;
-  margin-bottom: 0.5rem;
-  transition: color 0.2s;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  display: block;
 }
 
 .tech-name {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .tech-card.react-icon:hover .tech-icon {
@@ -510,6 +536,10 @@ html::-webkit-scrollbar {
 
 .tech-card.mysql-icon:hover .tech-icon {
   color: #00758f;
+}
+
+.tech-card.nestjs-icon:hover .tech-icon {
+  color: #ea2845;
 }
 
 .tech-card.nestjs-icon:hover .tech-icon {
@@ -812,6 +842,20 @@ footer p {
     margin-top: 12px;
   }
   .event-pic img {
+    width: 100%;
+    height: 100%;
+    min-width: unset;
+    min-height: unset;
+    max-height: unset;
+    object-fit: cover;
+  }
+  .experience-pic {
+    width: 50px;
+    height: 50px;
+    min-width: unset;
+    margin-top: 12px;
+  }
+  .experience-pic img {
     width: 100%;
     height: 100%;
     min-width: unset;
