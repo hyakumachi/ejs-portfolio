@@ -1,0 +1,98 @@
+<%- include('partials/header') %> <%- include('partials/navbar') %>
+
+<main class="main-content">
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="about-container">
+      <div class="about-text">
+        <h1 class="about-name"><%= data.name %></h1>
+        <p class="about-role"><%= data.role %></p>
+      </div>
+      <div class="about-img">
+        <img src="/images/pfp.jpg" alt="Profile" class="profile-img" />
+      </div>
+    </div>
+
+    <div class="about-links">
+      <a
+        href="/resume.pdf"
+        target="_blank"
+        class="resume-btn"
+        aria-label="Download Resume"
+      >
+        <i class="fas fa-download"></i>
+        Resume
+      </a>
+      <% data.socials.forEach(social => { %>
+      <a
+        href="<%= social.url %>"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="<%= social.name %>"
+      >
+        <i class="<%= social.icon %>"></i>
+      </a>
+      <% }); %>
+    </div>
+
+    <div class="about-description">
+      <h2>
+        <span class="intro intro-bold"><%= data.description.bold %></span>
+        <span class="intro intro-normal"><%= data.description.normal %></span>
+      </h2>
+    </div>
+
+    <!-- Featured Projects Section -->
+    <h2 class="title">Featured Projects</h2>
+    <p class="desc">
+      Showcasing web projects that highlight my skills in design, development,
+      and problem-solving using various technologies.
+    </p>
+
+    <% data.projects.slice(0, 2).forEach(project => { %>
+    <div class="featured-card">
+      <div class="event-info">
+        <div class="event-date"><%= project.date %></div>
+        <div class="event-name"><%= project.name %></div>
+        <div class="event-stack-row">
+          <% project.stack.forEach(tech => { %>
+          <div class="event-stack"><%= tech %></div>
+          <% }); %>
+        </div>
+        <div class="event-desc"><%= project.description %></div>
+        <div class="event-buttons">
+          <a
+            class="event-btn"
+            href="<%= project.source %>"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-github"></i>
+            Source Code
+          </a>
+          <% if (project.demo) { %>
+          <a
+            class="event-btn"
+            href="<%= project.demo %>"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-globe"></i>
+            Live Demo
+          </a>
+          <% } %>
+        </div>
+      </div>
+      <div class="event-pic">
+        <img src="<%= project.img %>" alt="<%= project.name %>" />
+      </div>
+    </div>
+    <% }); %>
+
+    <div style="text-align: center; margin: 2rem 0">
+      <a href="/projects" class="event-btn">View All Projects</a>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

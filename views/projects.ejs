@@ -1,0 +1,53 @@
+<%- include('partials/header') %> <%- include('partials/navbar') %>
+
+<main class="main-content">
+  <div class="container">
+    <h2 class="title">All Projects</h2>
+    <p class="desc">
+      A comprehensive showcase of my web development projects, highlighting
+      various technologies and problem-solving approaches.
+    </p>
+
+    <% data.projects.forEach(project => { %>
+    <div class="featured-card">
+      <div class="event-info">
+        <div class="event-date"><%= project.date %></div>
+        <div class="event-name"><%= project.name %></div>
+        <div class="event-stack-row">
+          <% project.stack.forEach(tech => { %>
+          <div class="event-stack"><%= tech %></div>
+          <% }); %>
+        </div>
+        <div class="event-desc"><%= project.description %></div>
+        <div class="event-buttons">
+          <a
+            class="event-btn"
+            href="<%= project.source %>"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-github"></i>
+            Source Code
+          </a>
+          <% if (project.demo) { %>
+          <a
+            class="event-btn"
+            href="<%= project.demo %>"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-globe"></i>
+            Live Demo
+          </a>
+          <% } %>
+        </div>
+      </div>
+      <div class="event-pic">
+        <img src="<%= project.img %>" alt="<%= project.name %>" />
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</main>
+
+<%- include('partials/footer') %>
