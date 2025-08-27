@@ -44,13 +44,42 @@
 
     <!-- Tech Stack Section -->
     <h2 class="title">Tech Stack</h2>
-    <p class="desc">Technologies and tools I work with on a regular basis.</p>
-    <div class="event-stack-row" style="margin-bottom: 2rem">
-      <% data.techStack.forEach(tech => { %>
-      <div class="event-stack"><%= tech %></div>
-      <% }); %>
+    <p class="desc">
+      A selection of modern tools that I use to build scalable, high-quality web
+      applications.
+    </p>
+    <div class="stack-icons">
+      <div class="tech-card react-icon">
+        <div class="tech-icon">
+          <img src="/images/react-icon.svg" alt="React" />
+        </div>
+        <div class="tech-name">React</div>
+      </div>
+      <div class="tech-card typescript-icon">
+        <div class="tech-icon">
+          <img src="/images/ts-icon.svg" alt="TypeScript" />
+        </div>
+        <div class="tech-name">TypeScript</div>
+      </div>
+      <div class="tech-card tailwind-icon">
+        <div class="tech-icon">
+          <img src="/images/tailwind-icon.svg" alt="Tailwind CSS" />
+        </div>
+        <div class="tech-name">Tailwind CSS</div>
+      </div>
+      <div class="tech-card mysql-icon">
+        <div class="tech-icon">
+          <img src="/images/mysql-logo.png" alt="MySQL" />
+        </div>
+        <div class="tech-name">MySQL</div>
+      </div>
+      <div class="tech-card nestjs-icon">
+        <div class="tech-icon">
+          <img src="/images/nestjs-icon.svg" alt="NestJS" />
+        </div>
+        <div class="tech-name">NestJS</div>
+      </div>
     </div>
-
     <!-- Experience Section -->
     <h2 class="title">Experience</h2>
     <p class="desc">My educational and professional journey in technology.</p>
@@ -62,28 +91,14 @@
       <div class="event-info">
         <div class="event-date"><%= exp.period %></div>
         <div class="event-name"><%= exp.title %></div>
-        <div class="event-desc" style="color: #fff; font-weight: 500">
-          <%= exp.role %>
-        </div>
+        <div class="event-desc experience-role-text"><%= exp.role %></div>
       </div>
     </div>
     <% }); %>
     <!-- Featured Projects Section -->
-    <div
-      style="
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 0.5rem;
-      "
-    >
-      <h2 class="title" style="margin: 0">Featured Projects</h2>
-      <a
-        href="/projects"
-        class="all-projects-link"
-        style="color: #aaa; font-size: 0.9rem; text-decoration: underline"
-        >All Projects</a
-      >
+    <div class="featured-projects-header">
+      <h2 class="title featured-projects-title">Featured Projects</h2>
+      <a href="/projects" class="all-projects-link">All Projects</a>
     </div>
     <p class="desc">
       Showcasing web projects that highlight my skills in design, development,

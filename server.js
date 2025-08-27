@@ -32,11 +32,6 @@ const portfolioData = {
       icon: "fab fa-linkedin",
     },
     {
-      name: "Email",
-      url: "mailto:pacanza.berns4884@gmail.com",
-      icon: "fas fa-envelope",
-    },
-    {
       name: "Facebook",
       url: "https://www.facebook.com/pacanza.bernard",
       icon: "fab fa-facebook",
@@ -71,6 +66,15 @@ const portfolioData = {
       img: "/images/ftproj3.png",
       source: "https://github.com/hyakumachi/odin-landing_page",
       demo: "https://hyakumachi.github.io/odin-landing_page/",
+    },
+    {
+      date: "Jan 2025",
+      name: "Absent Counter",
+      description: "Lets students track their absences per subject.",
+      stack: ["React", "Tailwind CSS", "Javascript"],
+      img: "/images/proj4.png",
+      source: "https://github.com/Kurev/Absent-Counter",
+      demo: "https://absentracker.vercel.app/",
     },
   ],
   techStack: [
